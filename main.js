@@ -1,37 +1,55 @@
 // Canvas refecence:
 // https://www.w3schools.com/graphics/canvas_reference.asp
+var eventoMouse = "empty";
+var mouseX, mouseY;
+var ultimaPosicaoX, ultimaPosicaoY;
+
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 var cor = "red";
+var largTraco = 2;
 
-// circulo(200, 200);
+canvas.addEventListener("mousedown", down);
 
-canvas.addEventListener("mousedown",clique);
-
-function clique (e) {
+function down (e) {
     var novaCor = document.getElementById("cor").value;
-    // console.log(novaCor);
     if (novaCor){
         cor = novaCor;
-        // console.log(cor);
     }
-    // console.log(e);
-    var mouseX = e.offsetX;
-    var mouseY = e.offsetY;
-    console.log("X = " + mouseX + " | Y = " + mouseY);
-    circulo (mouseX, mouseY);
+    var novoTraco = document.getElementById("traco").value;
+    if (novoTraco) {
+        largTraco = novoTraco;
+    }
+    // mouseX = e.offsetX;
+    // mouseY = e.offsetY;
+
+    // ultimaPosicaoX = mouseX;
+    // ultimaPosicaoY = mouseY;
+    
+    eventoMouse = "mousedown";
+    console.log(eventoMouse);
 }
 
-function circulo (x, y) {
-    ctx.beginPath();
-    ctx.strokeStyle = cor;
-    ctx.lineWidth = 2;
-    // arc(x,y,r,startangle,endangle) - angulos em radianos - 360° = 2PI
-    ctx.arc(x, y, 40, 0, 2*Math.PI);
-    ctx.stroke();
+canvas.addEventListener("mousemove", move);
+
+function move (e) {
+    mouseX = e.offsetX;
+    mouseY = e.offsetY;
+
+    if (eventoMouse == "mousedown") {
+        ctx.beginPath();
+        ctx.strokeStyle = cor;
+        ctx.lineWidth = largTraco;
+
+        ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
+
+        ctx.lineTo(mouseX, mouseY);
+
+        ctx.stroke();
+    }
+
+    ultimaPosicaoX = mouseX;
+    ultimaPosicaoY = mouseY;
 }
 
-function limpar () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}

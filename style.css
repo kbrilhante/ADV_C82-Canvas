@@ -3,7 +3,6 @@ body {
     background-image: url("bg1.jpg");
     background-position: center;
     background-size: cover;
-    font-size: 20px;
 }
 
 h1 {
@@ -17,8 +16,27 @@ h1 {
     border-color: yellow;
     border-style: ridge;
     background-color: #fff;
+    cursor: pointer;
 }
 
 div {
-    margin: 10px;
+    margin: 10px auto;
+    background-color: rgba(255, 255, 0, 0.5);
+    width: 800px;
+}
+
+span {
+    font-size: 20px;
+}
+
+input {
+    margin-right: 20px;
+}
+
+button {
+    background-color: coral;
+    border: none;
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 16px;
 }
