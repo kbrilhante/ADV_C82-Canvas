@@ -21,14 +21,8 @@ function down (e) {
     if (novoTraco) {
         largTraco = novoTraco;
     }
-    // mouseX = e.offsetX;
-    // mouseY = e.offsetY;
-
-    // ultimaPosicaoX = mouseX;
-    // ultimaPosicaoY = mouseY;
     
     eventoMouse = "mousedown";
-    console.log(eventoMouse);
 }
 
 canvas.addEventListener("mousemove", move);
@@ -53,3 +47,21 @@ function move (e) {
     ultimaPosicaoY = mouseY;
 }
 
+canvas.addEventListener("mouseup", up);
+
+function up (e) {
+    eventoMouse = "mouseup";
+}
+
+canvas.addEventListener("mouseleave", leave);
+
+function leave (e) {
+    eventoMouse = "mouseleave";
+}
+
+function limpar () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("cor").value = "";
+    document.getElementById("traco").value = "";
+
+}
