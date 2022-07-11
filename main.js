@@ -1,6 +1,6 @@
 // Canvas refecence:
 // https://www.w3schools.com/graphics/canvas_reference.asp
-var eventoMouse = "empty";
+var eventoMouse = "";
 var mouseX, mouseY;
 var ultimaPosicaoX, ultimaPosicaoY;
 
@@ -10,9 +10,9 @@ var ctx = canvas.getContext("2d");
 var cor = "red";
 var largTraco = 2;
 
-canvas.addEventListener("mousedown", down);
+canvas.addEventListener("mousedown", mousedown);
 
-function down (e) {
+function mousedown (e) {
     var novaCor = document.getElementById("cor").value;
     if (novaCor){
         cor = novaCor;
@@ -22,12 +22,13 @@ function down (e) {
         largTraco = novoTraco;
     }
     
-    eventoMouse = "mousedown";
+    // eventoMouse = "mousedown";
+    getEventType(e);
 }
 
-canvas.addEventListener("mousemove", move);
+canvas.addEventListener("mousemove", mousemove);
 
-function move (e) {
+function mousemove (e) {
     mouseX = e.offsetX;
     mouseY = e.offsetY;
 
@@ -47,16 +48,24 @@ function move (e) {
     ultimaPosicaoY = mouseY;
 }
 
-canvas.addEventListener("mouseup", up);
+canvas.addEventListener("mouseup", mouseup);
 
-function up (e) {
-    eventoMouse = "mouseup";
+function mouseup (e) {
+    // eventoMouse = "mouseup";
+    getEventType(e);
 }
 
-canvas.addEventListener("mouseleave", leave);
+canvas.addEventListener("mouseleave", mouseleave);
 
-function leave (e) {
-    eventoMouse = "mouseleave";
+function mouseleave (e) {
+    // eventoMouse = "mouseleave";
+    getEventType(e);
+
+}
+
+function getEvento (e) {
+    getEventType = e.type;
+    console.log(eventoMouse);
 }
 
 function limpar () {
