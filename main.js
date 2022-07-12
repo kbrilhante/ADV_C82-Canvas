@@ -23,7 +23,7 @@ function mousedown (e) {
     }
     
     // eventoMouse = "mousedown";
-    getEventType(e);
+    getEvento(e);
 }
 
 canvas.addEventListener("mousemove", mousemove);
@@ -52,19 +52,19 @@ canvas.addEventListener("mouseup", mouseup);
 
 function mouseup (e) {
     // eventoMouse = "mouseup";
-    getEventType(e);
+    getEvento(e);
 }
 
 canvas.addEventListener("mouseleave", mouseleave);
 
 function mouseleave (e) {
     // eventoMouse = "mouseleave";
-    getEventType(e);
+    getEvento(e);
 
 }
 
 function getEvento (e) {
-    getEventType = e.type;
+    eventoMouse = e.type;
     console.log(eventoMouse);
 }
 
@@ -72,5 +72,4 @@ function limpar () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.getElementById("cor").value = "";
     document.getElementById("traco").value = "";
-
 }
