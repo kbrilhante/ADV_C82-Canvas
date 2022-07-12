@@ -7,22 +7,15 @@ var ultimaPosicaoX, ultimaPosicaoY;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+var txtCor = document.getElementById("cor");
+var txtTraco = document.getElementById("traco");
+
 var cor = "red";
-var largTraco = 2;
+var traco = 2;
 
 canvas.addEventListener("mousedown", mousedown);
 
 function mousedown (e) {
-    // var novaCor = document.getElementById("cor").value;
-    // if (novaCor){
-    //     cor = novaCor;
-    // }
-    // var novoTraco = document.getElementById("traco").value;
-    // if (novoTraco) {
-    //     largTraco = novoTraco;
-    // }
-    
-    // eventoMouse = "mousedown";
     getEvento(e);
 }
 
@@ -35,7 +28,7 @@ function mousemove (e) {
     if (eventoMouse == "mousedown") {
         ctx.beginPath();
         ctx.strokeStyle = cor;
-        ctx.lineWidth = largTraco;
+        ctx.lineWidth = traco;
 
         ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
 
@@ -51,14 +44,12 @@ function mousemove (e) {
 canvas.addEventListener("mouseup", mouseup);
 
 function mouseup (e) {
-    // eventoMouse = "mouseup";
     getEvento(e);
 }
 
 canvas.addEventListener("mouseleave", mouseleave);
 
 function mouseleave (e) {
-    // eventoMouse = "mouseleave";
     getEvento(e);
 
 }
@@ -74,3 +65,12 @@ function limpar () {
     document.getElementById("traco").value = "";
 }
 
+txtCor.addEventListener("input", function () {
+    cor = txtCor.value;
+});
+
+txtTraco.addEventListener("input", function (){
+    if (txtTraco.value > 0) {
+        traco = txtTraco.value;
+    }
+});
