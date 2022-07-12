@@ -13,14 +13,14 @@ var largTraco = 2;
 canvas.addEventListener("mousedown", mousedown);
 
 function mousedown (e) {
-    var novaCor = document.getElementById("cor").value;
-    if (novaCor){
-        cor = novaCor;
-    }
-    var novoTraco = document.getElementById("traco").value;
-    if (novoTraco) {
-        largTraco = novoTraco;
-    }
+    // var novaCor = document.getElementById("cor").value;
+    // if (novaCor){
+    //     cor = novaCor;
+    // }
+    // var novoTraco = document.getElementById("traco").value;
+    // if (novoTraco) {
+    //     largTraco = novoTraco;
+    // }
     
     // eventoMouse = "mousedown";
     getEvento(e);
@@ -73,3 +73,4 @@ function limpar () {
     document.getElementById("cor").value = "";
     document.getElementById("traco").value = "";
 }
+
