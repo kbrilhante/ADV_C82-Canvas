@@ -1,7 +1,7 @@
 // Canvas refecence:
 // https://www.w3schools.com/graphics/canvas_reference.asp
 var eventoMouse = "";
-var mouseX, mouseY;
+var posicaoX, posicaoY;
 var ultimaPosicaoX, ultimaPosicaoY;
 
 var canvas = document.getElementById("myCanvas");
@@ -29,8 +29,8 @@ function mousedown (e) {
 canvas.addEventListener("mousemove", mousemove);
 
 function mousemove (e) {
-    mouseX = e.offsetX;
-    mouseY = e.offsetY;
+    posicaoX = e.offsetX;
+    posicaoY = e.offsetY;
 
     if (eventoMouse == "mousedown") {
         ctx.beginPath();
@@ -39,13 +39,13 @@ function mousemove (e) {
 
         ctx.moveTo(ultimaPosicaoX,ultimaPosicaoY);
 
-        ctx.lineTo(mouseX, mouseY);
+        ctx.lineTo(posicaoX, posicaoY);
 
         ctx.stroke();
     }
 
-    ultimaPosicaoX = mouseX;
-    ultimaPosicaoY = mouseY;
+    ultimaPosicaoX = posicaoX;
+    ultimaPosicaoY = posicaoY;
 }
 
 canvas.addEventListener("mouseup", mouseup);
